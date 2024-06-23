@@ -1,0 +1,44 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: demo
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8180/realms/demo
+          jwk-set-uri: http://keycloak:8180/realms/demo/protocol/openid-connect/certs
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://keycloak:8180/realms/demo
+        registration:
+          spring-with-test-scope:
+            provider: keycloak
+            client-id: demo-rest-client
+            client-secret: ZORoJcMtwn7bEPoH4FYeN2YN78LkZpGS
+            authorization-grant-type: authorization_code
+            scope: openid
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.web.reactive.function.client: TRACE
+    org.springframework.cloud.gateway: DEBUG
+
+springdoc:
+  api-docs:
+    path: /api-docs
