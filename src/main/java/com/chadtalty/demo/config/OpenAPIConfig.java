@@ -11,6 +11,14 @@ import io.swagger.v3.oas.models.OpenAPI;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Configuration class for setting up OpenAPI (Swagger) documentation.
+ * <p>
+ * This class configures the OpenAPI documentation for the Demo API. It defines
+ * the title, version, description, and contact information for the API. It also
+ * sets up the security scheme for bearer token authentication using JWT.
+ * </p>
+ */
 @Configuration
 @OpenAPIDefinition(
         info =
@@ -23,6 +31,16 @@ import org.springframework.context.annotation.Configuration;
 @SecurityScheme(name = "bearerAuth", type = SecuritySchemeType.HTTP, scheme = "bearer", bearerFormat = "JWT")
 public class OpenAPIConfig {
 
+    /**
+     * Creates and configures the custom OpenAPI bean.
+     * <p>
+     * This method sets up the security scheme for the API to use bearer token
+     * authentication with JWT.
+     * </p>
+     *
+     * @return an {@link OpenAPI} instance configured with the security scheme for
+     *         bearer authentication.
+     */
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI()

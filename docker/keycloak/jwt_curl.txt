@@ -1,7 +1,14 @@
 curl --location --request POST 'http://localhost:8180/realms/demo/protocol/openid-connect/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'grant_type=password' \
 --data-urlencode 'client_id=demo-rest-client' \
---data-urlencode 'client_secret=ZORoJcMtwn7bEPoH4FYeN2YN78LkZpGS' \
 --data-urlencode 'username=test-user' \
---data-urlencode 'password=password'
+--data-urlencode 'password=password' \
+--data-urlencode 'grant_type=password' \
+--data-urlencode 'client_secret=ZORoJcMtwn7bEPoH4FYeN2YN78LkZpGS'
+
+
+
+
+curl -v -F "file=@/Users/chadtalty/Projects/chadtalty/demo/docker/demo_file.dat" -F "bucketName=demobucket" -F "keyName=demo_key" \
+-H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJncEpaWWh5aHZTWHVzWFczZVVHdm54R3NJcW5DTDhORHhFY0lsUzRoOGowIn0.eyJleHAiOjE3MTkyMzM1ODAsImlhdCI6MTcxOTE5NzU4MCwianRpIjoiMGY1Zjk0ZGQtYTA3YS00ZTNiLWJhYjAtNjAwN2UyZGUyM2NiIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9kZW1vIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZGVtby1yZXN0LWNsaWVudCIsInNpZCI6ImEzYjM2ZTMxLWQyNTEtNDQ3YS1iN2QzLTAwNGE0MDk3NTYwYyIsInNjb3BlIjoicm9sZV9saXN0Iiwicm9sZXMiOiJST0xFX3VzZXIiLCJlbWFpbCI6InRlc3R1c2VyQGV4YW1wbGUuY29tIn0.h-b73oGCUn1K-T-JWih6taepBxwxx73OMKstzd97VI81ls5HVNGT45OlFCFEaDaYNTuQT4mDodn9cbZiwOZDeFfXWJcanBApP-__WWI7rHF9B8Mfjfi4voC7r6OndrtD80HSUbeJ6Xz-schgRgrwAycIPmuckTxRKeOSTTvBah9yZvdwhmCzpAn98s2jkFZTt5hFHpJkqGiTKDlyqucJfPzm1zf0SKtq4tLTrRH3K5uN59hXdRUGAZclqPENvlv1UWd6pJMHKz40xgwdR8QDrScMXNn83wMe75skTk1PbI3yHaFOt3V8RyMhysG_XjTyYEwD77O2m568CNj3dqwUrg" \
+http://localhost:8080/api/s3/upload

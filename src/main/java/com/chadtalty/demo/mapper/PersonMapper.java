@@ -24,7 +24,8 @@ public interface PersonMapper {
         @Mapping(target = "lastModifiedDate", ignore = true),
         @Mapping(target = "id", ignore = true),
         @Mapping(target = "orders", ignore = true),
-        @Mapping(target = "password", ignore = true)
+        @Mapping(target = "password", ignore = true),
+        @Mapping(target = "version", ignore = true)
     })
     Person toEntity(PersonDTO personDTO);
 

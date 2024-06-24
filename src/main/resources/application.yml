@@ -1,20 +1,23 @@
 spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
   main:
     allow-bean-definition-overriding: true
   application:
     name: demo
   datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
-    username: sa
-    password: password
-  h2:
-    console:
-      enabled: true
+    url: jdbc:postgresql://localhost:5432/demo
+    driver-class-name: org.postgresql.Driver
+    username: demo_user
+    password: demo_password
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
   security:
     oauth2:
       resourceserver:
@@ -42,3 +45,15 @@ logging:
 springdoc:
   api-docs:
     path: /api-docs
+
+application:
+  services:
+    payment:
+      url: http://localhost:8080/api/payment
+    inventory:
+      url: http://localhost:8080/api/inventory
+    s3:
+      endpoint: http://localhost:9000
+      access-key: minioadmin
+      secret-key: minioadminpassword
+      region: us-east-1
