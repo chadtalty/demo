@@ -23,11 +23,11 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:8180/realms/demo
-          jwk-set-uri: http://keycloak:8180/realms/demo/protocol/openid-connect/certs
+          jwk-set-uri: http://localhost:8180/realms/demo/protocol/openid-connect/certs
       client:
         provider:
           keycloak:
-            issuer-uri: http://keycloak:8180/realms/demo
+            issuer-uri: http://localhost:8180/realms/demo
         registration:
           spring-with-test-scope:
             provider: keycloak
